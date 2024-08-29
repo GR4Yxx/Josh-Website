@@ -1,5 +1,6 @@
 const output = document.getElementById('output');
 const input = document.getElementById('input');
+const prompt = document.getElementById('prompt');
 
 const commands = {
     help: 'Available commands: help, about, skills, experience, education, clear',
@@ -21,9 +22,13 @@ input.addEventListener('keydown', (event) => {
 function processInput(userInput) {
     const command = commands[userInput];
     if (command !== undefined) {
-        output.innerHTML += `<div>${userInput}</div><div>${command}</div>`;
-        if (userInput === 'clear') output.innerHTML = '';
+        if (userInput === 'clear') {
+            output.innerHTML = ''; // Clear the terminal output
+        } else {
+            output.innerHTML += `<div>${prompt.textContent} ${userInput}</div><div>${command}</div>`;
+        }
     } else {
-        output.innerHTML += `<div>${userInput}</div><div>Command not found. Type 'help' for a list of commands.</div>`;
+        output.innerHTML += `<div>${prompt.textContent} ${userInput}</div><div>Command not found. Type 'help' for a list of commands.</div>`;
     }
+    output.scrollTop = output.scrollHeight; // Auto-scroll to bottom
 }
