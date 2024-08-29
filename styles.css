@@ -1,7 +1,7 @@
 /* Full-page terminal styling */
 body {
-    background-color: black;
-    color: lime;
+    background-color: #000000; /* Black background */
+    color: #c0c0c0; /* Light gray text */
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
@@ -30,6 +30,8 @@ body {
 #input-line {
     display: flex;
     align-items: center;
+    border-top: 1px solid #505050; /* Darker gray border for input line */
+    padding-top: 5px; /* Add some padding */
 }
 
 #prompt {
@@ -38,9 +40,39 @@ body {
 
 #input {
     background: transparent;
-    color: lime;
+    color: #c0c0c0; /* Light gray text for input */
     border: none;
     outline: none;
     flex-grow: 1; /* Make the input fill the remaining space */
-    caret-color: lime; /* Cursor color */
+    caret-color: #c0c0c0; /* Cursor color */
 }
+
+/* Styling for ASCII tables */
+.ascii-table {
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ascii-table td, .ascii-table th {
+    border: 1px solid #505050; /* Dark gray border */
+    padding: 5px;
+}
+
+.ascii-table th {
+    background-color: #404040; /* Dark gray background for headers */
+    color: #c0c0c0; /* Light gray text */
+}
+
+.ascii-table td {
+    background-color: #202020; /* Darker gray background for table cells */
+    color: #c0c0c0; /* Light gray text */
+}
+
+/* Command output styling */
+.command-output {
+    margin-top: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+    
